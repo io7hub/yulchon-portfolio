@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>353122_IoCrops PO 포지션 입사 지원 포트폴리오</title>
+    
+<script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+KR:wght@100..900&display=swap');
+        :root {
+            --color-navy: #183153; /* Deep Navy */
+            --color-green: #4CAF50; /* Vibrant Green */
+            --color-orange: #FF9800; /* Accent Orange */
+            --color-light-gray: #f7f9fb;
+        }
+        body {
+            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+            background-color: var(--color-light-gray);
+            line-height: 1.6;
+        }
+        .header-bg { background-color: var(--color-navy); color: white; }
+        .text-navy { color: var(--color-navy); }
+        .text-green { color: var(--color-green); }
+        .bg-orange { background-color: var(--color-orange); }
+        .section-container { max-width: 1200px; margin: 0 auto; padding: 1.5rem 0.5rem; }
+        .card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); }
+        .icon-lg { width: 2.5rem; height: 2.5rem; }
+        .border-left-accent { border-left: 6px solid var(--color-orange); }
+
+        .flow-line { position: relative; padding: 1rem 0; }
+        .flow-line::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background-color: #ddd; transform: translateX(-50%); }
+        .flow-point { position: relative; z-index: 10; }
+        .flow-point::after { content: ''; position: absolute; left: 50%; top: 50%; width: 16px; height: 16px; background-color: var(--color-orange); border-radius: 50%; transform: translate(-50%, -50%); border: 3px solid white; }
+        @media (min-width: 768px) {
+            .flow-line::before { left: 0; transform: none; }
+            .flow-point::after { left: 0; transform: translateY(-50%); }
+            .flow-point .card { margin-left: 2rem; }
+        }
+
+        .project-card-container {
+            padding: 1.5rem 1.5rem 0 1.5rem; 
+        }
+        .project-header {
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border-radius: 0.75rem;
+            padding: 0.5rem 0; 
+            margin: 0;
+        }
+        .project-header:hover {
+            background-color: #f3f4f6;
+        }
+        .project-detail-content {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.4s ease-in-out, opacity 0.4s;
+            opacity: 0;
+            padding-top: 0;
+        }
+        .project-detail-content.expanded {
+            max-height: 1000px; 
+            opacity: 1;
+            padding-top: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.5rem; 
+            line-height: 1.2;
+            font-weight: 800; 
+            color: var(--color-navy);
+        }
+        .project-meta {
+            font-size: 1rem; 
+            font-weight: 600; 
+            color: #4b5563; 
+            margin-left: 0.75rem;
+            white-space: nowrap;
+        }
+        .project-meta .badge {
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            padding: 0.15rem 0.5rem;
+            border-radius: 9999px; 
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+
+        .icon-circle {
+            background-color: var(--color-orange); 
+            border-radius: 50%;
+            width: 3.5rem; 
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0; 
+        }
+        .icon-circle svg {
+            width: 2rem; 
+            height: 2rem;
+            color: white; 
+        }
+
+        .footer-detail-group {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .cert-text {
+            word-break: keep-all; 
+        }
+        @media (max-width: 640px) {
+            .footer-detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .profile-info {
+            background-color: var(--color-navy);
+            color: white; 
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            height: 100%; 
+        }
+        .profile-summary-content {
+            padding-left: 2rem; 
+        }
+        @media (max-width: 640px) {
+            .profile-summary-content {
+                padding-left: 0;
+                padding-top: 1.5rem;
+                border-top: 1px solid #e5e7eb; 
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+<script>
+        function toggleProjectDetail(id) {
+            const detail = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            
+            if (detail.classList.contains('expanded')) {
+                detail.classList.remove('expanded');
+                icon.classList.remove('rotate-180');
+            } else {
+                // Collapse all other expanded projects
+                document.querySelectorAll('.project-detail-content.expanded').forEach(item => {
+                    if (item.id !== id) {
+                        item.classList.remove('expanded');
+                        document.getElementById('icon-' + item.id).classList.remove('rotate-180');
+                    }
+                });
+                
+                detail.classList.add('expanded');
+                icon.classList.add('rotate-180');
+            }
+        }
+    </script>
+
+    
+<header class="header-bg py-12">
+        <div class="section-container text-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-3">
+                IoCrops 입사 지원 포트폴리오
+            </h1>
+            <h2 class="text-2xl font-light text-gray-300 mb-6">
+                현장 데이터 기반, <strong class="font-bold">6차 산업 DX/AX 전환</strong>을 이끄는 전략 실행가
+            </h2>
+            
+            <div class="bg-white p-4 rounded-lg shadow-xl max-w-6xl mx-auto text-left">
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 items-stretch">
+                    
+                    <div class="col-span-1 profile-info">
+                        <div class="space-y-3 text-lg">
+                            <div>
+                                <span class="font-bold block text-green-300 pt-2"> </span>
+                                <span class="font-bold block text-gray-500">이름</span>
+                                <span class="block">김기남 (1969. 03. 10.)</span>
+                            </div>
+                            <div>
+                                <span class="font-bold block text-gray-500">연락처</span>
+                                <span class="block">010 - 2610 - 5194</span>
+                            </div>
+                            <div>
+                                <span class="font-bold block text-gray-500">이메일</span>
+                                <span class="block">io7hub@naver.com</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1 sm:col-span-3 text-navy profile-summary-content">
+                        <p class="mb-3 text-lg leading-relaxed">
+                            약 20년간 한국 정부·국내 기업과 중남미 정부·현지 기업 간 다자 협력 네트워크를 구축하고, IoT Platform 기반의 <strong class="font-bold">데이터 중심 실무형 프로젝트</strong>를 기획·운영해왔습니다.
+                        </p>
+                        <p class="mb-3 text-lg leading-relaxed">
+                            최근 7년간은 중남미 제조기업을 대상으로 <strong class="font-bold">IoT Platform 기반 경량 MES, KPI 대시보드, AI-Agent Solution 구현</strong> 등 현장 데이터를 활용한 의사결정 구조를 체계화하는 프로젝트를 성공적으로 수행했습니다.
+                        </p>
+                        <p class="mb-3 text-lg leading-relaxed">
+                            이러한 경험은 단순한 기술 구현을 넘어, <strong class="font-bold">제조 현장의 데이터 통합 및 효율화</strong> 역량을 IoCrops의 <strong class="font-bold">농업(ioFarm/Ation) 및 식품 분야 가치사슬(Grotecture™)</strong> 혁신으로 확장할 수 있는 기반이 됩니다.
+                        </p>
+                        <p class="text-green text-xl font-bold">
+                            IoCrops가 지향하는 <strong class="font-bold">Agri-Data Intelligence</strong> 혁신 과정에 실질적 기여가 가능한, 현장 중심의 <strong>실행형 사고력과 기술적 통합 역량</strong>을 보유하고 있습니다.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+
+                <div class="footer-detail-grid grid grid-cols-2 md:grid-cols-4 gap-4 mt-3 text-sm sm:text-base">
+                    
+                    <div class="flex flex-col items-center justify-start h-full">
+                        <span class="font-bold text-gray-400 mb-1">학력</span>
+                        <span class="text-gray-300">충남대학교 신소재(금속)공학과 졸업</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-start h-full">
+                        <span class="font-bold text-gray-400 mb-1">자격증</span>
+                        <span class="text-gray-300 cert-text leading-relaxed">데이터 분석 준전문가, ODA 일반 자격증,</span>
+                        <span class="text-gray-300 cert-text leading-relaxed">산업기계설비기사 1급</span>
+                    </div>
+                    
+                    <div class="flex flex-col items-center justify-start h-full">
+                        <span class="font-bold text-gray-400 mb-1">스페인어</span>
+                        <span class="text-gray-300">고급 비즈니스 회화 및 문서 작성</span>
+                    </div>
+                    
+                    <div class="flex flex-col items-center justify-start h-full">
+                        <span class="font-bold text-gray-400 mb-1">영어</span>
+                        <span class="text-gray-300">문서 작성 및 회화 가능</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+<section class="section-container bg-white">
+        <h2 class="text-4xl font-extrabold text-center text-navy mb-12">
+            <strong class="font-bold">주요 프로젝트 성과 및 상세 실행 내역(최근 5년)</strong>
+        </h2>
+
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 text-center">
+            <div class="p-6 bg-green-50 border-b-4 border-green rounded-lg shadow-md">
+                <p class="text-4xl font-extrabold text-green">4.6/5.0</p>
+                <p class="text-lg text-gray-700 mt-2">컨설팅 <strong class="font-bold">종합 만족도</strong> 달성(2024)</p>
+            </div>
+            <div class="p-6 bg-blue-50 border-b-4 border-navy rounded-lg shadow-md">
+                <p class="text-4xl font-extrabold text-navy">5건</p>
+                <p class="text-lg text-gray-700 mt-2">DX 기반 <strong class="font-bold">솔루션 출시</strong> 자문(2024)</p>
+            </div>
+            <div class="p-6 bg-orange-50 border-b-4 border-orange rounded-lg shadow-md">
+                <p class="text-4xl font-extrabold text-orange">30~47회<span class="text-lg text-gray-700 mt-2">/연간</span></p>
+                <p class="text-lg text-gray-700 mt-2"><strong class="font-bold">B2B/다자간 미팅/초청연수</strong> 기획 관리</p>
+            </div>
+        </div>
+
+<div class="space-y-6">
+
+<div class="card border-l-8 border-teal-500 p-0 overflow-hidden">
+                <div class="project-card-container">
+                    <div class="project-header flex justify-between items-center" onclick="toggleProjectDetail('project1')">
+                        <div class="flex flex-col text-left">
+                            <div class="flex items-center mb-1">
+                                <h3 class="project-title">1. SMES DX 지원 프로젝트</h3>
+                                <span class="project-meta text-teal-600">(엘살바도르 
+                                    <span class="badge bg-teal-200 text-teal-800">2023-2025</span>)
+                                </span>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed font-medium">
+                                <strong class="font-bold">IoT Platform & LangChain</strong> 기반 5개사 기술 자문 및 <strong class="font-bold">신제품 5건 출시</strong> 자문
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-base font-semibold text-teal-600 hidden sm:block">KIAT, MINEC</span>
+                            <svg id="icon-project1" class="w-6 h-6 text-navy transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                
+<div id="project1" class="project-detail-content px-6 pb-6">
+                    <hr class="mb-4 border-gray-200">
+                    <strong class="font-bold text-lg text-navy block mb-2">상세 정보:</strong>
+                    <ul class="list-disc text-gray-700 ml-5 text-base space-y-2">
+                        <li><strong class="font-bold">사용 기술:</strong> IoT Platform, Python, Raspberry Pi, BI 협업툴, Streamlit + LangChain</li>
+                        <li><strong class="font-bold">담당 역할:</strong> 프로젝트 관리</li>
+                        <li><strong class="font-bold">주요 성과:</strong> 5개사 맞춤형 기술 자문 컨설팅 10회, 기업 대표단 초청 B2B 미팅, 신제품 5건 출시, 종합 만족도 <strong class="font-bold">4.6/5.0</strong> 달성.</li>
+                        <li><strong class="font-bold">IoCrops 시사점:</strong> 제조업 DX 경험을 농업 분야(ioFarm/Ation)에 적용, 데이터 기반 성과 관리 및 글로벌 협력 능력 접목</li>
+                    </ul>
+                </div>
+            </div>
+
+<div class="card border-l-8 border-sky-500 p-0 overflow-hidden">
+                <div class="project-card-container">
+                    <div class="project-header flex justify-between items-center" onclick="toggleProjectDetail('project2')">
+                        <div class="flex flex-col text-left">
+                            <div class="flex items-center mb-1">
+                                <h3 class="project-title">2. 플라스틱 오염 관리 방안 자문 기획</h3>
+                                <span class="project-meta text-sky-600">(쿠바 
+                                    <span class="badge bg-sky-200 text-sky-800">2024</span>)
+                                </span>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed font-medium">
+                                <strong class="font-bold">LangChain Agent</strong> 기반 <strong class="font-bold">분석 솔루션 Prototype</strong> 개발 기획
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-base font-semibold text-sky-600 hidden sm:block">KADI</span>
+                            <svg id="icon-project2" class="w-6 h-6 text-navy transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                
+<div id="project2" class="project-detail-content px-6 pb-6">
+                    <hr class="mb-4 border-gray-200">
+                    <strong class="font-bold text-lg text-navy block mb-2">상세 정보:</strong>
+                    <ul class="list-disc text-gray-700 ml-5 text-base space-y-2">
+                        <li><strong class="font-bold">사용 기술:</strong> IoT Platform, LangChain Agent, Streamlit, PDM</li>
+                        <li><strong class="font-bold">담당 역할:</strong> 프로젝트 기획</li>
+                        <li><strong class="font-bold">주요 성과:</strong> 컨설팅용 Streamlit 분석 솔루션 Prototype 개발 (자연어 기반 SQL 분석 → LangChain Agent + OpenAI API 활용)</li>
+                        <li><strong class="font-bold">IoCrops 시사점:</strong> AI Agent 기술을 활용하여 복잡한 환경/농업 데이터를 <strong class="font-bold">Actionable Insight</strong>로 전환하는 능력 보유</li>
+                    </ul>
+                </div>
+            </div>
+
+<div class="card border-l-8 border-orange-500 p-0 overflow-hidden">
+                <div class="project-card-container">
+                    <div class="project-header flex justify-between items-center" onclick="toggleProjectDetail('project3')">
+                        <div class="flex flex-col text-left">
+                            <div class="flex items-center mb-1">
+                                <h3 class="project-title">3. 컨설팅용 Streamlit 데이터 솔루션 Prototype 개발</h3>
+                                <span class="project-meta text-orange-600">(엘살바도르, LATAM 
+                                    <span class="badge bg-orange-200 text-orange-800">2023</span>)
+                                </span>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed font-medium">
+                                <strong class="font-bold">Raspberry Pi</strong> 기반 IoT 데이터 수집 → 모니터링 <strong class="font-bold">자동화</strong>
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-base font-semibold text-orange-600 hidden sm:block">KADI</span>
+                            <svg id="icon-project3" class="w-6 h-6 text-navy transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                
+<div id="project3" class="project-detail-content px-6 pb-6">
+                    <hr class="mb-4 border-gray-200">
+                    <strong class="font-bold text-lg text-navy block mb-2">상세 정보:</strong>
+                    <ul class="list-disc text-gray-700 ml-5 text-base space-y-2">
+                        <li><strong class="font-bold">사용 기술:</strong> IoT Platform, Python, Raspberry Pi, Streamlit + LangChain, PDM</li>
+                        <li><strong class="font-bold">담당 역할:</strong> 프로젝트 관리</li>
+                        <li><strong class="font-bold">주요 성과:</strong> 컨설팅용 Streamlit 데이터 시각화 Prototype 개발 (Raspberry Pi 기반 IoT 데이터 수집 → 모니터링 자동화). <strong class="font-bold">저비용 센서/데이터 인프라 구축 능력</strong> 입증.</li>
+                        <li><strong class="font-bold">IoCrops 시사점:</strong> ioFarm의 현장 데이터 수집 및 시각화 프로세스를 <strong class="font-bold">경량화, 자동화</strong>하여 글로벌 확장성 확보 기여</li>
+                    </ul>
+                </div>
+            </div>
+
+<div class="card border-l-8 border-green-500 p-0 overflow-hidden">
+                <div class="project-card-container">
+                    <div class="project-header flex justify-between items-center" onclick="toggleProjectDetail('project4')">
+                        <div class="flex flex-col text-left">
+                            <div class="flex items-center mb-1">
+                                <h3 class="project-title">4. SMEs 생산 역량 강화 - 기업 진단</h3>
+                                <span class="project-meta text-green-600">(파라과이 
+                                    <span class="badge bg-green-200 text-green-800">2022</span>)
+                                </span>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed font-medium">
+                                <strong class="font-bold">Smart HACCP</strong> 및 자체 평가 시스템 적용 자문
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-base font-semibold text-green-600 hidden sm:block">KIAT, REDIEX</span>
+                            <svg id="icon-project4" class="w-6 h-6 text-navy transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                
+<div id="project4" class="project-detail-content px-6 pb-6">
+                    <hr class="mb-4 border-gray-200">
+                    <strong class="font-bold text-lg text-navy block mb-2">상세 정보:</strong>
+                    <ul class="list-disc text-gray-700 ml-5 text-base space-y-2">
+                        <li><strong class="font-bold">사용 기술:</strong> Smart HACCP, 자체 평가 시스템, Python, 이해관계자 스토리 보드</li>
+                        <li><strong class="font-bold">담당 역할:</strong> 현지 전문가</li>
+                        <li><strong class="font-bold">주요 성과:</strong> 프로젝트 참여 기업 선정을 위한 기업 진단, 전시회 참가, B2B 미팅. 농식품 분야의 품질/생산 관리 도메인 지식 활용</li>
+                    </ul>
+                </div>
+            </div>
+
+<div class="card border-l-8 border-yellow-500 p-0 overflow-hidden">
+                <div class="project-card-container">
+                    <div class="project-header flex justify-between items-center" onclick="toggleProjectDetail('project5')">
+                        <div class="flex flex-col text-left">
+                            <div class="flex items-center mb-1">
+                                <h3 class="project-title">5. SMEs 생산 역량 강화 - 맞춤형 컨설팅</h3>
+                                <span class="project-meta text-yellow-600">(에콰도르 
+                                    <span class="badge bg-yellow-200 text-yellow-800">2019-2021</span>)
+                                </span>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed font-medium">
+                                Smart HACCP, 분석실험, 관능평가 등 <strong class="font-bold">12개 제조사 컨설팅</strong> 실행
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-base font-semibold text-yellow-600 hidden sm:block">KIAT, MPCEIP</span>
+                            <svg id="icon-project5" class="w-6 h-6 text-navy transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                
+<div id="project5" class="project-detail-content px-6 pb-6">
+                    <hr class="mb-4 border-gray-200">
+                    <strong class="font-bold text-lg text-navy block mb-2">상세 정보:</strong>
+                    <ul class="list-disc text-gray-700 ml-5 text-base space-y-2">
+                        <li><strong class="font-bold">사용 기술:</strong> Smart HACCP, 분석실험, 관능평가, Python, PDM, 이해관계자 스토리 보드</li>
+                        <li><strong class="font-bold">담당 역할:</strong> 현지 전문가 | 프로젝트 관리</li>
+                        <li><strong class="font-bold">주요 성과:</strong> 12개 제조사/정부기관 대상 맞춤형 컨설팅, 세미나, 전시회 출품, 초청연수 등 <strong class="font-bold">B2B/다자간 미팅 47회</strong> 성사.</li>
+                        <li><strong class="font-bold">IoCrops 시사점:</strong> 농식품 가치사슬 전반에 걸친 품질 및 생산관리 경험과 다자간 협력 경험 활용</li>
+                    </ul>
+                </div>
+            </div>
+
+<div class="card border-l-8 border-purple-500 p-0 overflow-hidden">
+                <div class="project-card-container">
+                    <div class="project-header flex justify-between items-center" onclick="toggleProjectDetail('project6')">
+                        <div class="flex flex-col text-left">
+                            <div class="flex items-center mb-1">
+                                <h3 class="project-title">6. 안데스고지대 농기계 개발 타당성 조사</h3>
+                                <span class="project-meta text-purple-600">(에콰도르 
+                                    <span class="badge bg-purple-200 text-purple-800">2021</span>)
+                                </span>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed font-medium">
+                                현지 타당성 조사, 농기계 <strong class="font-bold">성능평가 및 CAD 모델</strong> 발굴
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-base font-semibold text-purple-600 hidden sm:block">KIAT, MPCEIP</span>
+                            <svg id="icon-project6" class="w-6 h-6 text-navy transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                
+<div id="project6" class="project-detail-content px-6 pb-6">
+                    <hr class="mb-4 border-gray-200">
+                    <strong class="font-bold text-lg text-navy block mb-2">상세 정보:</strong>
+                    <ul class="list-disc text-gray-700 ml-5 text-base space-y-2">
+                        <li><strong class="font-bold">사용 기술:</strong> CAD, 현지 타당성조사, PDM, 이해관계자 스토리 보드</li>
+                        <li><strong class="font-bold">담당 역할:</strong> 현지 전문가 | 프로젝트 관리</li>
+                        <li><strong class="font-bold">주요 성과:</strong> 안데스 고원지대 작물분포에 따른 맞춤형 농기계 모델 발굴, 고위급 대표단 초청 산업시찰 및 B2B 미팅 행사 추진. <strong class="font-bold">농업/농기계 도메인</strong>에 대한 폭 넓은 이해</li>
+                    </ul>
+                </div>
+            </div>
+           
+<div class="card border-l-8 border-red-500 p-0 overflow-hidden">
+                <div class="project-card-container">
+                    <div class="project-header flex justify-between items-center" onclick="toggleProjectDetail('project7')">
+                        <div class="flex flex-col text-left">
+                            <div class="flex items-center mb-1">
+                                <h3 class="project-title">7. 제조 혁신 센터 건립 타당성 조사</h3>
+                                <span class="project-meta text-red-600">(에콰도르 
+                                    <span class="badge bg-red-200 text-red-800">2020</span>)
+                                </span>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed font-medium">
+                                Smart Factory Pilot 생산라인 설계 및 <strong class="font-bold">데이터 기반 신제품 개발 플랫폼</strong> 추진안 수립
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-base font-semibold text-red-600 hidden sm:block">KIAT, MPCEIP</span>
+                            <svg id="icon-project7" class="w-6 h-6 text-navy transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                
+<div id="project7" class="project-detail-content px-6 pb-6">
+                    <hr class="mb-4 border-gray-200">
+                    <strong class="font-bold text-lg text-navy block mb-2">상세 정보:</strong>
+                    <ul class="list-disc text-gray-700 ml-5 text-base space-y-2">
+                        <li><strong class="font-bold">사용 기술:</strong> 현지 타당성 조사, 자체 평가시스템, IoT Platform,  Python, PDM</li>
+                        <li><strong class="font-bold">담당 역할:</strong> 현지 전문가 | 프로젝트 관리</li>
+                        <li><strong class="font-bold">주요 성과:</strong> 핵심 육성 제조 분야(8개) 선정, Smart Factory Pilot 생산라인 설계, <strong class="font-bold">데이터 분석 기반 신제품 개발 플랫폼</strong> 추진안 수립.</li>
+                        <li><strong class="font-bold">IoCrops 시사점:</strong> Smart Factory 설계 경험을 <strong class="font-bold">Grotecture™</strong> 모델과 HERMAI 로봇의 운영 최적화에 직접 적용 가능</li>
+                    </ul>
+                </div>
+            </div>
+           
+<div class="card border-l-8 border-gray-500 p-0 overflow-hidden">
+                <div class="project-card-container">
+                    <div class="project-header flex justify-between items-center" onclick="toggleProjectDetail('project8')">
+                        <div class="flex flex-col text-left">
+                            <div class="flex items-center mb-1">
+                                <h3 class="project-title">8. 수입·유통·사업개발 | 제조 설비 유지보수 엔지니어링</h3>
+                                <span class="project-meta text-gray-600">(에콰도르, LATAM 
+                                    <span class="badge bg-gray-200 text-gray-800">2005-2019</span>)
+                                </span>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed font-medium">
+                                고객/제품/유통망 <strong class="font-bold">데이터 분석</strong> 기반 트렌드 분석, 고객 관리, 비즈니스 모델 개발 | 제조 설비 증·개축 및 유지보수 엔지니어링
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-base font-semibold text-gray-600 hidden sm:block">KENOTEC</span>
+                            <svg id="icon-project8" class="w-6 h-6 text-navy transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                
+<div id="project8" class="project-detail-content px-6 pb-6">
+                    <hr class="mb-4 border-gray-200">
+                    <strong class="font-bold text-lg text-navy block mb-2">상세 정보:</strong>
+                    <ul class="list-disc text-gray-700 ml-5 text-base space-y-2">
+                        <li><strong class="font-bold">사용 기술:</strong> Excel query, CAD, PDM, 이해관계자 스토리 보드, 데이터 기반 트렌드 분석</li>
+                        <li><strong class="font-bold">담당 역할:</strong> 프로젝트 관리</li>
+                        <li><strong class="font-bold">주요 고객사:</strong> MEGAMAXI | SANTAMARIA | EL RECREO | CCI | CC ESPIRAL | CONDADO SHOPPING | ANDELSA | AYMESA | GMOBB | PONCE YEPES etc.</li>
+                        <li><strong class="font-bold">주요 성과:</strong> 수입/유통/고객 자료 분석을 통해 주요 성과 모니터링, 트렌드 분석, 고객·상품·유통망 개발 및 관리 및 <strong class="font-bold">데이터 분석 기반의 의사결정 내재화</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+<section class="section-container">
+        <h2 class="text-4xl font-extrabold text-center text-navy mb-12">
+             <strong class="font-bold">IoCrops 지원 비전: Grotecture™ 완성 로드맵</strong>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            
+<div class="flow-line col-span-1 md:col-span-1">
+                <div class="flow-point">
+                    <div class="card border-t-4 border-yellow-500">
+                        <h3 class="text-2xl font-extrabold text-navy mb-3"><span class="text-xl font-bold text-yellow-600 mr-2">PHASE 1</span><p>다자 협력 구조화</p></h3>
+                        <p class="text-gray-700 mb-4 font-semibold">Grotecture 3요소(시설·사람·시스템) 혁신 기반 마련</p>
+                        <ul class="list-disc text-gray-700 ml-5 text-base space-y-1">
+                            <li>제조업 DX 경험을 활용한 시스템·시설·사람의 <strong class="font-bold">스토리 보드</strong>&<strong class="font-bold">전략 플래너</strong> 구축</li>
+                            <li>LATAM 협력 네트워크 기반 <strong class="font-bold">글로벌 B2B 현지 니즈</strong>의 자원화 및 구조화</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+<div class="flow-line col-span-1 md:col-span-1">
+                <div class="flow-point">
+                    <div class="card border-t-4 border-orange-500">
+                        <h3 class="text-2xl font-extrabold text-navy mb-3"><span class="text-xl font-bold text-orange-600 mr-2">PHASE 2</span><p>FTVC 플랫폼 통합 실행</p></h3>
+                        <p class="text-gray-700 mb-4 font-semibold">IoT - AI Platform의 FTVC 핵심 엔진 융합</p>
+                        <ul class="list-disc text-gray-700 ml-5 text-base space-y-1">
+                            <li><strong class="font-bold">LangChain Agent</strong> 기술로 ioFarm의 Decision → Action 진화 솔루션 개발 관리</li>
+                            <li><strong class="font-bold">HERMAI 로봇</strong>과의 데이터 인터페이스 및 운영 최적화 역할 수행</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+<div class="flow-line col-span-1 md:col-span-1">
+                <div class="flow-point">
+                    <div class="card border-t-4 border-green-500">
+                        <h3 class="text-2xl font-extrabold text-navy mb-3"><span class="text-xl font-bold text-green-600 mr-2">PHASE 3</span><p>지속가능한 표준 제시</p></h3>
+                        <p class="text-gray-700 mb-4 font-semibold">Grotecture 핵심 가치(수익성·확장성·지속가능성) 확보</p>
+                        <ul class="list-disc text-gray-700 ml-5 text-base space-y-1">
+                            <li>400여 농가 실적을 기반으로 <strong class="font-bold">글로벌 스마트팜 적용 모델</strong>, 수출 전략 주도</li>
+                            <li>우리 농업의 "기술 집약적이고 파급력 있는 생명 산업"으로 탈바꿈시키는 데 기여</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer class="header-bg py-8 mt-10">
+        <div class="section-container text-center">
+            <h3 class="text-2xl font-bold mb-5">CONTACT</h3>
+            <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-12 text-lg text-gray-200">
+                <div class="flex items-center justify-center">
+                    <span class="font-bold mr-2">e. </span> io7hub@naver.com
+                </div>
+                <div class="flex items-center justify-center">
+                    <span class="font-bold mr-2">c. </span> 010-2610-5194
+                </div>
+            </div>
+                
+            <p class="mt-12 text-center text-xs text-gray-200">
+            © 2025 Kinam KIM | ¡Juntos por el desarrollo! | 2025-10-31
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
