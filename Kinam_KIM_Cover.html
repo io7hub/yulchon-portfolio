@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ken Kim | Profile Summary</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --blue:#2563eb;         /* Vision Blue */
+  --green:#4CAF50;        /* IoCrops Green */
+  --gray:#475569;
+  --bg:#f9fafc;
+}
+*{box-sizing:border-box;}
+body {
+  margin:0; padding:0;
+  font-family:'Noto Sans KR',sans-serif;
+  background:var(--bg); color:var(--gray);
+  line-height:1.6;
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  background:linear-gradient(120deg,var(--blue)20%,var(--green)80%);
+  color:white; text-align:center;
+  padding:80px 20px;
+  animation:fadeIn 1.2s ease-in;
+}
+.hero h1 {
+  font-size:2.2rem; font-weight:800;
+  margin-bottom:0.8rem;
+}
+.hero p {
+  font-size:0.9rem; opacity:0.9;
+  animation:slideUp 1.5s ease-out;
+}
+
+/* ---------- Profile Summary ---------- */
+.section {
+  max-width:900px; margin:60px auto;
+  background:white; border-radius:18px;
+  padding:35px 50px; box-shadow:0 4px 14px rgba(0,0,0,0.06);
+  animation:fadeInUp 1s ease;
+}
+.section h2 {
+  font-size:1.5rem; color:var(--blue);
+  margin-bottom:1rem; font-weight:700;
+}
+.section p {
+  margin:0.7rem 0; font-size:1.05rem;
+}
+
+/* ---------- Core Competencies ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 1.5rem;
+}
+
+/* 1행 3열 고정형 레이아웃 */
+.cards.three-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.card {
+  background: linear-gradient(145deg, #ffffff, #f0f3f9);
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  color: var(--green);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+}
+
+
+/* ---------- Quote Section ---------- */
+.quote {
+  text-align:center; margin:80px auto; max-width:700px;
+}
+.quote blockquote {
+  font-size:1.25rem; font-weight:600; color:var(--blue);
+  border-left:5px solid var(--green);
+  padding-left:20px; line-height:1.7;
+  background:#f1f5f9; border-radius:10px;
+  padding:25px 30px;
+  animation:fadeInUp 1.2s ease;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align:center; color:#94a3b8;
+  padding:30px 10px; font-size:0.9rem;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
+@keyframes slideUp {from{transform:translateY(20px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+@keyframes fadeInUp {from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>멕시코 인발(Cold Drawing) 파이프 공정을,<br>데이터로 안정화하는 생산관리 리더</h1>
+  <p>조건–불량–표준–검사–조치(Closed Loop) 운영과 PPC(주간/일일 계획) 기반 WIP·납기·병목 관리를 실행으로 연결해온 현장형 PM<br>
+    Heat Treatment → Surface Treatment → Pointing/Swaging → Cold Drawing → Straightening → Cutting → Inspection → NDT(ECT/UT) → Oiling → Delivery
+  </p>
+</section>
+
+<!-- Profile Summary -->
+<section class="section">
+  <h2>프로필 요약</h2>
+  <p>저는 20년간 중남미 제조·프로젝트 현장에서 한국–현지 조직 간 협업을 리드하며, **현장의 언어(스페인어)와 운영 언어(숫자/표준/지표)**를 연결해 성과로 전환해온 실무형 생산관리/운영 PM입니다.</p>
+  <p>최근에는 현장 데이터를 KPI–SQL–Dashboard–Insight–Report로 구조화하는 데이터 파이프라인을 직접 설계·구축하여, 제조 현장 데이터를 구조화하고 실행 전략으로 전환하는 역량을 쌓아왔습니다.</p>
+  <p>YULCHON México에서는 <strong>인발파이프 전 공정(열처리–산세/표면처리–인발–교정–절단–검사–NDT(UT/ECT)–방청–출하)</strong>을 표준과 지표로 관리하여 가치전환하는 역할에 집중하겠습니다. 
+    <strong>공정 직접 경력의 공백은 ‘학습 속도’가 아니라, ‘운영 시스템을 세팅하고 현장에 이식하는 능력’으로 상쇄하겠습니다.</strong></p>
+</section>
+
+<!-- Core Competencies -->
+<section class="section">
+  <h2>핵심 역량</h2>
+  <div class="cards three-cols">
+    <div class="card">
+      <h3>공정 운영 의사결정</h3>
+      <p><strong>Condition-Action Loop</strong></p>
+      <p>인발/열처리/산세/검사/NDT 결과를 조건과 연결해 재발 방지 표준으로 고정, 불량·클레임을 사후 처리가 아닌 전조 관리로 전환</p>
+    </div>
+    <div class="card">
+      <h3>PPC 기반 생산계획·병목관리</h3>
+      <p><strong>Weekly/Daily Plan Execution</strong></p>
+      <p>주간 및 일일 계획–현장 실적–WIP–납기–병목을 한 화면에서 관리하고, 우선순위/자원배치/외주/검사 게이트까지 운영 결정으로 연결</p>
+    </div>
+    <div class="card">
+      <h3>한국–멕시코 협업 가교</h3>
+      <p><strong>Tech–Culture Bridge</strong></p>
+      <p>다문화·다자 협력 환경에서의 기술·데이터·비즈니스·문화적 차이 조율, 프로젝트 매니지먼트 및 커뮤니케이션 전문성</p>
+    </div>
+  </div>
+</section>
+
+<!-- Quote -->
+<section class="quote">
+  <blockquote>
+    “수집된 사실과 현장 데이터 관찰에서 구조적 통찰로, <br>데이터에서 방향으로, <br>전략에서 가치로 지속가능한 성장 모델을 제시하겠습니다.”
+  </blockquote>
+</section>
+
+<!-- 🔵 Footer -->
+<footer style="background:linear-gradient(90deg,#0f172a,#1e3a8a);
+               color:white;text-align:center;padding:40px 20px;">
+  <h3 style="font-size:20px;margin-bottom:10px;">Kinam Kim</h3>
+  <p style="margin:0;">데이터 기반 가치 전환 전략가</p>
+  <p style="margin-top:12px;color:#94a3b8;">Yulchon Mexico | Cold Drawn Steel Tube Production Management Candidate | 📧 io7hub@naver.com</p>
+</footer>
+</body>
+</html>
+
