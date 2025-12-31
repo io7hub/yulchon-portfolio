@@ -514,8 +514,8 @@ st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: #64748b; margin-top: 20px; padding: 15px;'>
     <p style="font-size: 1rem;">데이터 기반 가치 전환 전략<br>
-    📧 <a href='mailto:io7hub@naver.com' style='text-decoration: none;'>io7hub@naver.com</a> | <a href='https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/' style='text-decoration: none;'>🌐 https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/</a></p>
+    📧 <a href='mailto:io7hub@naver.com' style='text-decoration: none;'>io7hub@naver.com</a> | <a href='https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/' style='text-decoration: none;'>🌐 https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/</a></br>
     This work is based on my personal field analysis of data-driven value transformation strategies.<br>
-            © 2024-2025 Data-driven VX Strategist | powered by Kⁱ⁰⁷<br>   
+            © 2024-2025 Data-driven VX Strategist | powered by Kⁱ⁰⁷<br></p>   
 </div>
 """, unsafe_allow_html=True)
