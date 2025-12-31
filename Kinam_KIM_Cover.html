@@ -107,7 +107,16 @@ body {
   padding:25px 30px;
   animation:fadeInUp 1.2s ease;
 }
-
+/* 모든 링크의 밑줄 제거 */
+  a {
+      text-decoration: none !important;
+  }
+  
+  /* 마우스를 올렸을 때만 밑줄이 생기게 하려면 (선택 사항) */
+  a:hover {
+      text-decoration: underline !important;
+      color: #4e4bff; /* 강조색 추가 가능 */
+  }
 /* ---------- Footer ---------- */
 .footer {
   text-align:center; color:#94a3b8;
@@ -173,8 +182,8 @@ body {
 <footer style="background:linear-gradient(90deg,#0f172a,#1e3a8a);
                color:white;text-align:center;padding:40px 20px;">
   <h3 style="font-size:20px;margin-bottom:10px;">Kinam Kim</h3>
-  <p style="margin:0;">Kⁱ⁰⁷ 데이터 기반 가치 전환 전략 <br> 🌐 <a style="color:#94a3b8;" href='https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/' target='_blank'>https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/</a></p>
-  <p style="margin-top:12px;color:#94a3b8;">YULCHON MEXICO S.A DE C.V | Cold Drawn Steel Tube Production Management Candidate | 📧 io7hub@naver.com</p>
+  <p style="margin:0;">Kⁱ⁰⁷ 데이터 기반 가치 전환 전략 <br> 🌐 <a style="color:#94a3b8;" href="https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/" target="_blank">https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/</a></p>
+  <p style="margin-top:12px;color:#94a3b8;">YULCHON MEXICO S.A DE C.V | Cold Drawn Steel Tube Production Management Candidate | 📧 <a style="color:#94a3b8;" href="mailto:io7hub@naver.com">io7hub@naver.com</a></p>
 </footer>
 </body>
 </html>
