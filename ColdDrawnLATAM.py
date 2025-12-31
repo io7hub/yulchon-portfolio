@@ -519,5 +519,5 @@ with footer_col2:
     st.markdown("<h3 style='text-align:center;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;'>⚙️ Kⁱ⁰⁷ AI+ONTOLOGY PPC_COLD DRAWN TUBE</h3>", unsafe_allow_html=True)
     st.markdown("<p style='text-align:center;color:#64748b;margin-top:1rem;'>© 2024-2025 Data-driven VX Strategist | powered by Kⁱ⁰⁷</p>", unsafe_allow_html=True)
     st.markdown("<p style='text-align:center;color:#64748b;'>📧 io7hub@naver.com | 🌐 <a href='https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/' target='_blank'>https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/</a></p>", unsafe_allow_html=True)
-st.link_button("🌐 방문하기", "https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/")
+    st.link_button("🌐 방문하기", "https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/")
 st.markdown("---")
