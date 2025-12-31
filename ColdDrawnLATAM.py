@@ -520,3 +520,9 @@ with footer_col2:
     st.markdown("<p style='text-align:center;color:#64748b;margin-top:1rem;'>© 2024-2025 Data-driven VX Strategist | powered by Kⁱ⁰⁷</p>", unsafe_allow_html=True)
     st.markdown(f"<p>📧 <a href='mailto:io7hub@naver.com' style='text-decoration: none;'>io7hub@naver.com</a> | <a href='{url}' style='text-decoration: none;'>🌐 {url}</a></p>", unsafe_allow_html=True)
 st.markdown("---")
+st.markdown("""
+<div style='text-align: center; color: #64748b; margin-top: 20px; padding: 15px;'>
+    <p style="font-size: 1rem;">데이터 기반 가치 전환 전략<br>
+    © 2025 Data-driven VX Strategist | powered by Kⁱ⁰⁷  | 📧 io7hub@naver.com</p>
+</div>
+""", unsafe_allow_html=True)
