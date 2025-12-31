@@ -13,7 +13,7 @@ import os
 
 # Page config
 st.set_page_config(
-    page_title="COLD DRAWN TUBE AI Platform V2_LAUNCHER",
+    page_title="Kⁱ⁰⁷ COLD DRAWN TUBE AI Platform V2_LAUNCHER",
     page_icon="⚙️",
     layout="wide",
     initial_sidebar_state="expanded"
