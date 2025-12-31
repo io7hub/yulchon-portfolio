@@ -1327,10 +1327,10 @@ st.markdown("""
             📧 Contact
         </h3>
         <p style="color:#93c5fd;font-size:1.5rem;margin-top:1.5rem;font-weight:600;">
-            <a href="mailto:io7hub@naver.com">io7hub@naver.com</a>
+            <a href="mailto:io7hub@naver.com" style="text-decoration: none;">io7hub@naver.com</a>
         </p>
         <p style="color:#93c5fd;font-size:1.3rem;margin-top:1rem;">
-            🌐 <a href="https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/">https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/</a> | 📱 Demo 요청 즉시 가능
+            🌐 <a href="https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/" style="text-decoration: none;">https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/</a> | 📱 Demo 요청 즉시 가능
         </p>
     </div>
 </div>
