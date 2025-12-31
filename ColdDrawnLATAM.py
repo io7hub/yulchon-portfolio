@@ -518,10 +518,5 @@ url = "https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/"
 with footer_col2:
     st.markdown("<h3 style='text-align:center;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;'>⚙️ Kⁱ⁰⁷ AI+ONTOLOGY PPC_COLD DRAWN TUBE</h3>", unsafe_allow_html=True)
     st.markdown("<p style='text-align:center;color:#64748b;margin-top:1rem;'>© 2024-2025 Data-driven VX Strategist | powered by Kⁱ⁰⁷</p>", unsafe_allow_html=True)
-    st.markdown(f"<p style='text-align:center;color:#64748b;'>📧 <a href='mailto:io7hub@naver.com' style='text-decoration: none;'>io7hub@naver.com</a> | <a href='{url}' style='text-decoration: none;'>🌐 {url}</a></p>", unsafe_allow_html=True)
-    colw, colx, coly, colz = st.columns([0.5, 1, 2, 0.5])
-    with colx: 
-        st.markdown("<p style='text-align:center;color:#64748b;'>📧 io7hub@naver.com | </p>", unsafe_allow_html=True)
-    with coly: 
-        st.link_button("🌐 Other Projects", "https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/")
+    st.markdown(f"<p>📧 <a href='mailto:io7hub@naver.com' style='text-decoration: none;'>io7hub@naver.com</a> | <a href='{url}' style='text-decoration: none;'>🌐 {url}</a></p>", unsafe_allow_html=True)
 st.markdown("---")
