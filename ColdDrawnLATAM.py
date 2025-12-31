@@ -1,6 +1,6 @@
 """
 ════════════════════════════════════════════════════════════════════════════════
-COLD DRAWN TUBE AI PLATFORM V2 - LAUNCHER
+Kⁱ⁰⁷ AI+ONTOLOGY PPC_COLD DRAWN TUBE_LAUNCHER
 ════════════════════════════════════════════════════════════════════════════════
 """
 
@@ -13,7 +13,7 @@ import os
 
 # Page config
 st.set_page_config(
-    page_title="Kⁱ⁰⁷ COLD DRAWN TUBE AI Platform V2_LAUNCHER",
+    page_title="Kⁱ⁰⁷ AI+ONTOLOGY PPC_COLD DRAWN TUBE_LAUNCHER",
     page_icon="⚙️",
     layout="wide",
     initial_sidebar_state="expanded"
