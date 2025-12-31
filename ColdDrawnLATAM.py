@@ -513,7 +513,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("---")
 st.markdown("<br>", unsafe_allow_html=True)
 
-footer_col1, footer_col2, footer_col3 = st.columns([0.5, 3, 0.5])
+footer_col1, footer_col2, footer_col3 = st.columns([1.5, 1.3, 0.2])
 url = "https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/"
 with footer_col2:
     st.markdown("<h3 style='text-align:center;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;'>⚙️ Kⁱ⁰⁷ AI+ONTOLOGY PPC_COLD DRAWN TUBE</h3>", unsafe_allow_html=True)
