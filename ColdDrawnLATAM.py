@@ -511,15 +511,6 @@ st.markdown("<br>", unsafe_allow_html=True)
 # FOOTER - Elegant
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 st.markdown("---")
-st.markdown("<br>", unsafe_allow_html=True)
-
-footer_col1, footer_col2, footer_col3 = st.columns([0.5, 2.0, 0.5])
-url = "https://io7hub-projects-info-projects-main-jqmujm.streamlit.app/"
-with footer_col2:
-    st.markdown("<h3 style='text-align:center;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;'>⚙️ Kⁱ⁰⁷ AI+ONTOLOGY PPC_COLD DRAWN TUBE</h3>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align:center;color:#64748b;margin-top:1rem;'>© 2024-2025 Data-driven VX Strategist | powered by Kⁱ⁰⁷</p>", unsafe_allow_html=True)
-    st.markdown(f"<p>📧 <a href='mailto:io7hub@naver.com' style='text-decoration: none;'>io7hub@naver.com</a> | <a href='{url}' style='text-decoration: none;'>🌐 {url}</a></p>", unsafe_allow_html=True)
-st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: #64748b; margin-top: 20px; padding: 15px;'>
     <p style="font-size: 1rem;">데이터 기반 가치 전환 전략<br>
